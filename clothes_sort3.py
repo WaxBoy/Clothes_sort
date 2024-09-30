@@ -57,11 +57,13 @@ for line in file.readlines():
             try: lists[cleanclas].append(line)    #subcat = Bulky: --> bulky
             except (AttributeError,KeyError): pass
 
-if args.names:
+#-a --names
+if args.names:  
     for name in args.article[1:]:
         list_builder(name)
 else:
     list_builder(name)   
+
 
 Output = '::Pants::'
 for key, var in (list(lists.items()))[17:21]:
@@ -100,5 +102,3 @@ if Error != True:
     with open('output.txt', 'w') as file:
         file.write(Output)
 
-
-# read lines of file if line has no semicolon, becomes subcategory.
