@@ -1,0 +1,81 @@
+ ::Pants::
+
+    Jeans:
+cords   walmarts   trees   
+
+    Light:
+dockers   royal   jeans   
+
+    Bulky:
+outdoor   camo      toms
+
+    Shorts:
+grey   blue   camo   rough      
+
+
+ ::Sweatpants::
+
+   Soft:
+nike   grey   
+
+   Loud:
+college   blue      
+
+
+ ::Shirts::
+
+   Black:
+butter   insomnia   cats   skelly   bilabong   japan   
+
+   Grey:
+papa   hawaii   
+
+   Brown:
+idle_time   285   truck   beer   
+
+   Green:
+dark   dragon   other   
+
+   Blue:
+idle_time   new_mex   colombia   panama   stripes   seed   chains   crab_juice   
+
+   Purple:
+idle_time   baptist   misfit   
+
+   Pink:
+tommy   
+
+   Orange::
+
+
+   Tan:
+bored_palz   _skeleton   
+
+   White:
+   
+
+   Red:
+deaf   western   
+
+   Flanel:
+      
+
+
+ ::Long Sleeve::
+
+   Sleeve:
+   
+
+   Lfanel:
+      
+
+
+ ::Winter::
+
+   Big:
+expensive   grey_coat   drugrug   chiefs   
+
+   Medium:
+western   blue_hoodie   maroon_hoodie   
+
+   Small:

@@ -11,7 +11,7 @@ parser.add_argument('-a','--names', action= 'store_true')
 args = parser.parse_args()
 
 argssubcat = args.article[0]
-argsname = args.article[1]
+name = args.article[1]
 
 
         #article of clothing
@@ -32,68 +32,72 @@ lists = {'black': black, 'grey': grey, 'brown': brown, 'green': green, 'blue': b
 
 
 if argssubcat in list(lists):
-    clas = argssubcat   #if a correct subcat, set clas
+    input_clas = argssubcat   #if a correct subcat, set clas
 else:
     print("Error: 2")       
     Error = True
-    clas = 'pass:'   
+    input_clas = 'pass:'   
 
-name = argsname
 
-def list_builder(name):
-        if not args.delete:
-            try: lists[clas].append(name)
-            except AttributeError: pass
+
 
 file = open('output.txt', 'r')  
-
 cleanclas = 'pass:'
 for line in file.readlines():
     line = line.strip()
     if ':' in line: 
         cleanclas = line.lower()[:-1]
-    else:   
-        if line != name or cleanclas != argssubcat and not ':' in cleanclas:
-            try: lists[cleanclas].append(line)    #subcat = Bulky: --> bulky
-            except (AttributeError,KeyError): pass
+    elif not ':' in cleanclas:   
+        def dup_prevent(word):
+            if name in word and cleanclas == argssubcat:        
+                pass
+            else: 
+                try: lists[cleanclas].append(word) 
+                except (AttributeError,KeyError): pass
+        if len(line.split()) > 1:
+            for word in line.split():
+                dup_prevent(word)
+        else:
+            word = line
+            dup_prevent(word)
+file.close
 
-#-a --names
+def input_add(name):
+    if not args.delete:
+        try: lists[input_clas].append(name)
+        except AttributeError: pass
+#-a --names  
 if args.names:  
     for name in args.article[1:]:
-        list_builder(name)
+        input_add(name)
 else:
-    list_builder(name)   
-
-
-Output = '::Pants::'
-for key, var in (list(lists.items()))[17:21]:
-    if var != [] and var != None:     
-        Output += f'\n    {key.capitalize()}:'
+    input_add(name)   
+lists =list(lists.items())
+filter('', lists)
+Output = ' ::Pants::'
+for key, var in lists[17:21]:   
+        Output += f'\n\n    {key.capitalize()}:'
         Output += f'\n{'   '.join(var)}'
         print(var)
 
-Output += '\n::Sweatpants::'
-for key, var in (list(lists.items()))[21:23]:
-    if var != [] and var != None:       
-        Output += f'\n   {key.capitalize()}:'
+Output += '\n\n\n ::Sweatpants::'
+for key, var in lists[21:23]:      
+        Output += f'\n\n   {key.capitalize()}:'
         Output += f'\n{'   '.join(var)}'
-
-Output += '\n::Shirts::'
-for key, var in (list(lists.items()))[0:12]:
-    if var != [] and var != None:       
-        Output += f'\n   {key.capitalize()}:'
+        print(var)
+Output += '\n\n\n ::Shirts::'
+for key, var in lists[0:12]:      
+        Output += f'\n\n   {key.capitalize()}:'
         Output += f'\n{'   '.join(var)}'
-
-Output += '\n::Long Sleeve::'
-for key, var in (list(lists.items()))[12:14]: 
-    if var != [] and var != None:       #var is list of names in each sub category
-        Output += f'\n   {key.capitalize()}:'
+        print(var)
+Output += '\n\n\n ::Long Sleeve::'
+for key, var in lists[12:14]:       #var is list of names in each sub category
+        Output += f'\n\n   {key.capitalize()}:'
         Output += f'\n{'   '.join(var)}'
-
-Output += '\n::Winter::'
-for key, var in (list(lists.items()))[14:17]:
-    if var != [] and var != None:      
-        Output += f'\n   {key.capitalize()}:'
+        print(var)
+Output += '\n\n\n ::Winter::'
+for key, var in lists[14:17]:      
+        Output += f'\n\n   {key.capitalize()}:'
         Output += f'\n{'   '.join(var)}'
 
 
