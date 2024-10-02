@@ -15,19 +15,19 @@ name = args.article[1]
 
 
         #article of clothing
-types = {'p': 'pants', 'f': 'sweats', 's': 'shirt', 'l': 'long', 'w': 'winter'}
+types = {'p': 'pants', 'd': 'sweats', 's': 'shirt', 'f': 'flanels', 'w': 'winter'}
 
 black, grey, brown, green, blue, purple= [],[],[],[],[],[]
-pink, orange, tan, white, red, flanel= [],[],[],[],[],[]
-sleeve, lfanel = [],[]
+pink, orange, tan, white, red, long= [],[],[],[],[],[]
+flanel, flong = [],[]
 big, medium, small = [],[],[]
-jeans, light, bulky, shorts, soft, loud = [],[],[],[],[],[]
+jeans, light, bulky, shorts, soft, loud, pjs = [],[],[],[],[],[],[]
 
 lists = {'black': black, 'grey': grey, 'brown': brown, 'green': green, 'blue': blue, 'purple': purple, 
-         'pink': pink, 'orange:': orange, 'tan': tan, 'white': white, 'red': red, 'flanel': flanel,
-         'sleeve': sleeve, 'lfanel': lfanel,
+         'pink': pink, 'orange:': orange, 'tan': tan, 'white': white, 'red': red, 'long': long,
+         'flanel': flanel, 'flong': flong,
          'big': big, 'medium': medium, 'small': small,
-         'jeans': jeans, 'light': light, 'bulky': bulky, 'shorts': shorts, 'soft': soft, 'loud': loud, 'pass:': None}
+         'jeans': jeans, 'light': light, 'bulky': bulky, 'shorts': shorts, 'soft': soft, 'loud': loud, 'pjs': pjs, 'pass:': None}
 
 
 
@@ -72,33 +72,16 @@ if args.names:
         input_add(name)
 else:
     input_add(name)   
-lists =list(lists.items())
-filter('', lists)
-Output = ' ::Pants::'
-for key, var in lists[17:21]:   
-        Output += f'\n\n    {key.capitalize()}:'
-        Output += f'\n{'   '.join(var)}'
-        print(var)
 
-Output += '\n\n\n ::Sweatpants::'
-for key, var in lists[21:23]:      
-        Output += f'\n\n   {key.capitalize()}:'
-        Output += f'\n{'   '.join(var)}'
-        print(var)
-Output += '\n\n\n ::Shirts::'
-for key, var in lists[0:12]:      
-        Output += f'\n\n   {key.capitalize()}:'
-        Output += f'\n{'   '.join(var)}'
-        print(var)
-Output += '\n\n\n ::Long Sleeve::'
-for key, var in lists[12:14]:       #var is list of names in each sub category
-        Output += f'\n\n   {key.capitalize()}:'
-        Output += f'\n{'   '.join(var)}'
-        print(var)
-Output += '\n\n\n ::Winter::'
-for key, var in lists[14:17]:      
-        Output += f'\n\n   {key.capitalize()}:'
-        Output += f'\n{'   '.join(var)}'
+Output = ''
+for st, nd, cat in [(17,21,' ::Pants::'),(21,24,'\n\n\n ::Sweatpants::'),
+                    (0,12,'\n\n\n ::Shirts::'),(12,14,'\n\n\n ::Long Sleeve::'),
+                    (14,17,'\n\n\n ::Winter::')]:
+    Output += cat
+    for key, var in (list(lists.items()))[st:nd]:
+        if var != [] and var != None:     
+            Output += f'\n    {key.capitalize()}:'
+            Output += f'\n{'   '.join(var)}'
 
 
 
