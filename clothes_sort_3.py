@@ -75,7 +75,7 @@ else:
 
 Output = ''
 for st, nd, cat in [(17,21,' ::Pants::'),(21,24,'\n\n\n ::Sweatpants::'),
-                    (0,12,'\n\n\n ::Shirts::'),(12,14,'\n\n\n ::Long Sleeve::'),
+                    (0,12,'\n\n\n ::Shirts::'),(12,14,'\n\n\n ::Flanels::'),
                     (14,17,'\n\n\n ::Winter::')]:
     Output += cat
     for key, var in (list(lists.items()))[st:nd]:

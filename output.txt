@@ -1,17 +1,17 @@
  ::Pants::
     Jeans:
-cords   walmarts   trees
+cords   walmarts   trees   wrangs   docks   beans
     Light:
-dockers   royal   jeans
+royal   jeans   dickies   dokgreen   dokbrown
     Bulky:
-outdoor   camo
+outdoor   camo   army   toms
     Shorts:
 grey   blue   camo   rough      
 
 
  ::Sweatpants::
     Soft:
-nike   grey
+nike   grey   pockets
     Loud:
 college   blue
     Pjs:
@@ -20,7 +20,7 @@ bluecheck   bluestripe   grey   blue   blackwindow   grey_stripe
 
  ::Shirts::
     Black:
-butter   insomnia   cats   skelly   bilabong   japan
+butter   insomnia   cats   skelly   bilabong   japan   seattle
     Grey:
 papa   hawaii
     Brown:
@@ -36,14 +36,14 @@ thf
     Tan:
 bored_palz   _skeleton
     White:
-
+banksy   anime   inspire   london   arizona
     Red:
 deaf   western      
 
 
- ::Long Sleeve::
+ ::Flanels::
     Flanel:
-      
+         dancer   flower
 
 
  ::Winter::
